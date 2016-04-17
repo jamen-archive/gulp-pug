@@ -29,7 +29,8 @@
     "del": "^2.2.0",
     "eslint": "^2.7.0",
     "eslint-config-google": "^0.4.0",
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-data": "^1.2.1"
   },
   "dependencies": {
     "gulp-util": "^3.0.7",
