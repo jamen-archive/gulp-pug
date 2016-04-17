@@ -34,7 +34,8 @@
   },
   "dependencies": {
     "gulp-util": "^3.0.7",
-    "through2": "^2.0.1"
+    "through2": "^2.0.1",
+    "util-extend": "^1.0.3"
   },
   "peerDependencies": {
     "pug": "*",
