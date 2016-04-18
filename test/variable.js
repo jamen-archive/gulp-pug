@@ -17,11 +17,15 @@ test.cb('compiling', t => {
       foo: 'bar'
     };
   }))
-  .pipe(pug())
+  .pipe(pug({
+    data: {
+      bar: 'qux'
+    }
+  }))
   .pipe(gulp.dest('.'))
   .on('data', function(file) {
     t.deepEqual(file.contents.toString(),
-'<p>bar</p>');
+'<p>bar</p><div>qux</div>');
     t.is(extname(file.path), '.html');
     t.end();
   });
