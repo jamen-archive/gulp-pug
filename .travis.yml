@@ -3,6 +3,6 @@ language: node_js
 node_js:
   - "5"
   - "4"
-  - "0.10"
+  - "0.12"
 
-before_install: npm install pug@latest
+before_install: npm install pug@latest gulp@latest
