@@ -2,8 +2,6 @@ gulp-pug
 ========
 > Gulp plugin for compiling Pug templates.
 
-![build status][travis]
-
 A Gulp plugin for compiling Pug templates.  In order to use, you must install a version of `pug` alongside `gulp-pug`...  This is so `gulp-pug` can rely on the version of `pug` that you want.
 
 ## Installation
@@ -52,6 +50,5 @@ Example:
 <!-- All links must be "tagged" -->
  [@jamen]: https://github.com/jamen
  [jamen-image]: https://avatars2.githubusercontent.com/u/6251703?v=3&s=125
- [travis]: https://travis-ci.org/jamen/gulp-pug.svg
  [license]: LICENSE
  [gulp-data]: https://www.npmjs.com/package/gulp-data
