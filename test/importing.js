@@ -1,20 +1,17 @@
 'use strict';
 
-const test = require('ava');
-const pug = require('../lib');
-const gulp = require('gulp');
-const del = require('del');
+var test = require('ava');
+var pug = require('..');
+var gulp = require('gulp');
+var through = require('through2');
 
 test.cb('importing', t => {
-  t.plan(1);
-  del(['importing.html']);
-
   gulp.src('importing.pug')
   .pipe(pug())
-  .pipe(gulp.dest('.'))
-  .on('data', function(file) {
+  .pipe(through.obj(function(file, enc, cb) {
     t.deepEqual(file.contents.toString(),
 '<!DOCTYPE html><html><body><p>Hello!</p><p>Hello World</p></body></html>');
     t.end();
-  });
+    cb();
+  }));
 });

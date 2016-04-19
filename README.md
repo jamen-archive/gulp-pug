@@ -6,8 +6,9 @@ A Gulp plugin for compiling Pug templates.  In order to use, you must install a 
 
 ## Installation
 ```shell
-$ npm install --save-dev gulp-pug pug
+$ npm install --save-dev gulp-pug pug@latest
 ```
+Make sure you are using the latest version of `pug` if you are experiencing any strange problems.
 
 ## Usage
 ```javascript
@@ -24,11 +25,17 @@ gulp.task('build', function build() {
 ### `pug(options)`
 Compile Pug files to HTML files.
  - `options` (`Object`): Any of [Pug's options](http://pug-lang.com/api/) you want to use.
+ - `options.data` (`Object`): Locals to use in template. (Also see [`gulp-data`][gulp-data])
 
 Example:
 ```javascript
 // ...
-.pipe(pug({ pretty: true }))
+.pipe(pug({
+  pretty: true,
+  data: {
+    foo: 'bar'
+  }
+}))
 .pipe(gulp.dest(out));
 ```
 
@@ -43,5 +50,5 @@ Example:
 <!-- All links must be "tagged" -->
  [@jamen]: https://github.com/jamen
  [jamen-image]: https://avatars2.githubusercontent.com/u/6251703?v=3&s=125
-
  [license]: LICENSE
+ [gulp-data]: https://www.npmjs.com/package/gulp-data

@@ -8,7 +8,7 @@ var replaceExtension = gutil.replaceExtension;
 var PluginError = gutil.PluginError;
 
 module.exports = function gulpPug(opts) {
-  var baseOpts = extend({}, typeof opts === 'undefined' ? {} : opts);
+  var baseOpts = extend({}, opts);
 
   return through.obj(function(file, enc, callback) {
     var error = null;

@@ -1,16 +1,12 @@
 'use strict';
 
-const test = require('ava');
-const pug = require('../lib');
-const gulp = require('gulp');
-const data = require('gulp-data');
-const del = require('del');
-const extname = require('path').extname;
+var test = require('ava');
+var pug = require('..');
+var gulp = require('gulp');
+var through = require('through2');
+var data = require('gulp-data');
 
-test.cb('compiling', t => {
-  t.plan(2);
-  del(['variable.html']);
-
+test.cb('variable', t => {
   gulp.src('variable.pug')
   .pipe(data(function() {
     return {
@@ -22,11 +18,10 @@ test.cb('compiling', t => {
       bar: 'qux'
     }
   }))
-  .pipe(gulp.dest('.'))
-  .on('data', function(file) {
+  .pipe(through.obj(function(file, enc, cb) {
     t.deepEqual(file.contents.toString(),
 '<p>bar</p><div>qux</div>');
-    t.is(extname(file.path), '.html');
     t.end();
-  });
+    cb();
+  }));
 });

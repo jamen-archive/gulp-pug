@@ -1,22 +1,19 @@
 'use strict';
 
-const test = require('ava');
-const pug = require('../lib');
-const gulp = require('gulp');
-const del = require('del');
-const extname = require('path').extname;
+var test = require('ava');
+var pug = require('..');
+var gulp = require('gulp');
+var through = require('through2');
+var extname = require('path').extname;
 
 test.cb('compiling', t => {
-  t.plan(2);
-  del(['compiling.html']);
-
   gulp.src('compiling.pug')
   .pipe(pug())
-  .pipe(gulp.dest('.'))
-  .on('data', function(file) {
+  .pipe(through.obj(function(file, enc, cb) {
     t.deepEqual(file.contents.toString(),
 '<!DOCTYPE html><html class="foo" lang="en"></html>');
     t.is(extname(file.path), '.html');
     t.end();
-  });
+    cb();
+  }));
 });
