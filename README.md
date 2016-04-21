@@ -2,13 +2,10 @@ gulp-pug
 ========
 > Gulp plugin for compiling Pug templates.
 
-A Gulp plugin for compiling Pug templates.  In order to use, you must install a version of `pug` alongside `gulp-pug`...  This is so `gulp-pug` can rely on the version of `pug` that you want.
-
 ## Installation
 ```shell
-$ npm install --save-dev gulp-pug pug@latest
+$ npm install --save-dev gulp-pug
 ```
-Make sure you are using the latest version of `pug` if you are experiencing any strange problems.
 
 ## Usage
 ```javascript
@@ -26,6 +23,7 @@ gulp.task('build', function build() {
 Compile Pug files to HTML files.
  - `options` (`Object`): Any of [Pug's options](http://pug-lang.com/api/) you want to use.
  - `options.data` (`Object`): Locals to use in template. (Also see [`gulp-data`][gulp-data])
+ - `options.pug`: Custom `pug` module for `gulp-pug` to override default of `latest`.
 
 Example:
 ```javascript

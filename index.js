@@ -22,11 +22,16 @@ module.exports = function gulpPug(opts) {
       filename: file.path
     }, baseOpts);
 
+    // Locals
     opts.data = opts.data || {};
-
     var data = opts.data;
     if (file.data) {
       data = extend(data, file.data);
+    }
+
+    // Custom pug module
+    if (opts.pug) {
+      pug = opts.pug;
     }
 
     // Replace contents
